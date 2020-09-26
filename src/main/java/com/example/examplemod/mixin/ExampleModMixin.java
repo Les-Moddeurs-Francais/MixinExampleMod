@@ -1,0 +1,17 @@
+package com.example.examplemod.mixin;
+
+import net.minecraft.client.gui.screen.MainMenuScreen;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(MainMenuScreen.class)
+public class ExampleModMixin {
+
+    @Inject(at = @At("HEAD"), method = "addSingleplayerMultiplayerButtons")
+    private void init(CallbackInfo info) {
+        System.out.println("This line is printed by an example mod mixin!");
+    }
+
+}
